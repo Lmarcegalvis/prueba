@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,9 @@
       --clr-secondary: #0a58ca;
     }
 
+    /***
+     * Transiciones
+     */
     .caja-transicion {
       width: 150px;
       height: 100px;
@@ -110,9 +114,65 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+    /***
+     * Animación
+     */
+    /* Keyframes para el ejemplo fadeInSlideUp */
+    @keyframes miAnimacionIncreible {
+      from { /* 0% */
+        opacity: 0;
+        transform: translateY(50px); /* Empezamos abajo y transparente */
+      }
+      50% { /* A mitad de la animación */
+        opacity: 0.7;
+      }
+      to { /* 100% */
+        opacity: 1;
+        transform: translateX(0); /* Terminar arriba y visible */
+      }
+    }
+
+    /* Keyframes para el ejemplo pulso */
+    @keyframes pulso {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+    }
+
+    .elemento-animado {
+      padding: 20px;
+      margin: 20px;
+      background-color: lightgreen;
+      text-align: center;
+      font-family: sans-serif;
+
+      /*animation-name: miAnimacionIncreible;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;*/
+
+      animation: miAnimacionIncreible 1s ease-out forwards;
+    }    
+
+    .boton-llamada-accion {
+      padding: 15px 30px;
+      margin: 20px;
+      font-size: 1.1em;
+      background-color: tomato;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      /* Aplicando la animación de pulso */
+      animation: pulso 2s infinite  ease-in-out;
+    }
+
   </style>
 </head>
 <body>
+  <h2>Transiciones</h2>
+  <hr>
   <div class="caja-transicion">
     Pasa el cursor sobre mí
   </div>
@@ -140,5 +200,14 @@
       Ver Detalles
      </div>
   </div>
+
+  <hr>
+
+  <h2>Animaciones</h2>
+  <hr>
+
+  <div class="elemento-animado">¡Animado!</div>
+  <button class="boton-llamada-accion">¡Importante!</button>
+
 </body>
 </html>
