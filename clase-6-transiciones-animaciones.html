@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transiciones y Animaciones</title>
+  <style>
+    :root {
+      --clr-primary: #0d6efd;
+      --clr-secondary: #0a58ca;
+    }
+
+    .caja-transicion {
+      width: 150px;
+      height: 100px;
+      background-color: steelblue;
+      color: white;
+      padding: 20px;
+      margin: 30px;
+      text-align: center;
+      font-family: sans-serif;
+      
+      /* Definimos las transiciones por separado */
+      transition-property: background-color, transform;
+      transition-duration: 0.5s, 0.3s;
+      transition-timing-function: ease-out;
+      transition-delay: 0s, 0.1s;
+    }
+
+    .caja-transicion:hover {
+      background-color: tomato;
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .boton {
+      background-color: dodgerblue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      /* Aplicamos la trasición al estado base del botón */
+      transition: background-color 0.3s ease-out;
+    }
+
+    .boton:hover {
+      background-color: darkblue;
+    }
+
+
+    .mi-boton {
+      display: inline-block;
+      background-color: var(--clr-primary);
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: sans-serif;
+      /* Transición para el color de fondo y la sombra */
+      transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+    }
+
+    .mi-boton:hover, .mi-boton:focus {
+      background-color: var(--clr-secondary);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      outline: none;
+    }
+
+    .card-proyecto {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 15px;
+      background-color: white;
+      /* Transición para transform y sombra */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-proyecto:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-proyecto img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card-contenido {
+      padding: 15px;
+    }
+
+    .overlay-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      opacity: 0; /* Oculto por defecto */
+      transition: opacity 0.4s ease;
+      font-family: sans-serif;
+      pointer-events: none;
+    }
+
+    .card-proyecto:hover .overlay-info {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="caja-transicion">
+    Pasa el cursor sobre mí
+  </div>
+
+  <hr>
+
+  <button class="boton">Haz clic aquí</button>
+
+  <hr>
+
+  <a href="http://www.google.com" class="mi-boton">Ver proyecto</a>
+
+  <hr>
+
+  <div class="card-proyecto">
+    <img src="img/render.jpeg" width="200" alt="Descripción del proyecto">
+
+    <div class="card-contenido">
+      <h3>Nombre del proyecto</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis in a error commodi, aspernatur magni labore laboriosam ipsam accusamus optio ut modi ex quo rem vitae quisquam illo odit sapiente.</p>
+    </div>
+
+    <!-- Elemento que aparece al hacer hover -->
+     <div class="overlay-info">
+      Ver Detalles
+     </div>
+  </div>
+</body>
+</html>
